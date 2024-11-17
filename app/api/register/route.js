@@ -8,24 +8,24 @@ export async function POST(request) {
 
 
   if (password !== confirmPassword) {
-    return new NextResponse(JSON.stringify({error: "password does not match"}, {status: 400}))
+    return new NextResponse(JSON.stringify({error: "password does not match"}), {status: 400})
   }
 
   await connectDB()
   const existingUser = await User.findOne({email});
 
   if (existingUser) {
-    return new NextResponse(JSON.stringify({error: "user already exists"}, {status: 400}))
+    return new NextResponse(JSON.stringify({error: "user already exists"}), {status: 400})
   }
 
   const hashPassword = await bycrpt.hash(password, 10)
 
-  const newUser = new User({email, password: hashPassword, username});
+  const newUser = await new User({email, password: hashPassword, username});
 
   try {
     
     await newUser.save();
-    return new NextResponse(JSON.stringify("User successfully registered....", {status: 201}));
+    return new NextResponse(JSON.stringify("User successfully registered....", newUser), {status: 201});
 
   } catch (err) {
     return new NextResponse({message: err.message}, {status: 500})

@@ -36,5 +36,6 @@ const feedSchema = new Schema({
   }]
 })
 
-const Feed = mongoose.model('Feed', feedSchema);
-module.exports = Feed;
+const Feed = mongoose.models.Feed || mongoose.model('Feed', feedSchema);
+
+export default Feed;

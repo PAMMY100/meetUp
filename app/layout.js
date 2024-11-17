@@ -29,9 +29,8 @@ export default async function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <AuthProvider session={session}>
-          <ReactToast>
             {children}
-          </ReactToast>
+          <ReactToast />
         </AuthProvider>
       </body>
     </html>
