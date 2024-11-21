@@ -10,8 +10,7 @@ export const GET = async (request, {params}) => {
     await connectDB()
     
     // Extract the ID from the request URL
-    const url = new URL(request.url);
-    const id = url.pathname.split('/').pop(); // Extract the last part of the URL
+    const id = params.id;
 
     console.log(id)
 
@@ -20,7 +19,7 @@ export const GET = async (request, {params}) => {
     }
 
 
-    const post = await Feed.findOne({ _id: new mongoose.Types.ObjectId(id)})
+    const post = await Feed.findById(new mongoose.Types.ObjectId(id))
     .populate('username profilePicture')
     .populate({
       path: 'comment.user',
@@ -31,9 +30,9 @@ export const GET = async (request, {params}) => {
       return NextResponse.json({message: "Post not found"}, {status: 400})
     }
 
-    return new NextResponse(JSON.stringify({message: "post found successfully"}, post), {status: 200});
+    return  NextResponse.json({message: "post found successfully", post}, {status: 200});
 
   } catch (error) {
-    return NextResponse.json({message: "error fetching post", error}, {status: 500})
+    return NextResponse.json({message: "error fetching post", error: error.message}, {status: 500})
   }
 }

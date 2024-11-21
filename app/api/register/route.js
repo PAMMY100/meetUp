@@ -8,14 +8,14 @@ export async function POST(request) {
 
 
   if (password !== confirmPassword) {
-    return new NextResponse(JSON.stringify({error: "password does not match"}), {status: 400})
+    return new NextResponse(JSON.stringify({message: "password does not match"}), {status: 400})
   }
 
   await connectDB()
   const existingUser = await User.findOne({email});
 
   if (existingUser) {
-    return new NextResponse(JSON.stringify({error: "user already exists"}), {status: 400})
+    return new NextResponse(JSON.stringify({message: "user already exists"}), {status: 400})
   }
 
   const hashPassword = await bycrpt.hash(password, 10)

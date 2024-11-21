@@ -17,6 +17,6 @@ export async function GET (request) {
     return new NextResponse(JSON.stringify({message: "users found", users}), {status: 200})
 
   } catch (error) {
-    return new NextResponse(JSON.stringify({message: "failed to fetch all users"}), {status: 500})
+    return new NextResponse(JSON.stringify({message: "failed to fetch all users" , error: error.message}), {status: 500})
   }
 }

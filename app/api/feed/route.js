@@ -20,7 +20,7 @@ export const GET = async (req, res) => {
     return new NextResponse(JSON.stringify({message: "feeds successfully loaded", post}), {status: 200});
     
   } catch (error) {
-    return new NextResponse(JSON.stringify({message: "Failed to load feed", error}), {status: 500})
+    return new NextResponse(JSON.stringify({message: "Failed to load feed", error: error.message}), {status: 500})
   }
 }
 
@@ -37,10 +37,7 @@ export const POST = async (request) => {
 
     // Validate userId
     if (!userId || !Types.ObjectId.isValid(userId)) {
-      return NextResponse.json(
-        { message: "Invalid or missing userId" },
-        { status: 400 }
-      );
+       return new NextResponse(JSON.stringify({message: "Invalid userId"}), {status: 400})
     }
 
     //connect to the Database
@@ -50,19 +47,13 @@ export const POST = async (request) => {
     const user = await User.findById(userId);
     
     if (!user) {
-      return NextResponse.json(
-        { message: "User not found" },
-        { status: 404 }
-      );
+      return NextResponse(JSON.stringify({message: "User not found"}), {status: 400})
     }
 
     
     // Validate input
     if (!(content || media)) {
-      return NextResponse.json(
-        { message: "Please provide content or media" },
-        { status: 400 }
-      );
+      return new NextResponse(JSON.stringify({message: "Please provide a content or media"}), {status: 400})
     }
 
     // Create a new feed post
@@ -76,7 +67,7 @@ export const POST = async (request) => {
     await newPost.save();
 
     return NextResponse.json(
-      { message: "Post successfully created", post: newPost },
+      { message: "Post successfully created", newPost },
       { status: 201 }
     );
   } catch (error) {

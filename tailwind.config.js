@@ -9,9 +9,17 @@ module.exports = withMT({
   ],
   theme: {
     extend: {
+      fontFamily: {
+        poppins: ['Poppins', 'sans-serif'],
+        dmSans: ['DM Sans', 'sans-serif']
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        primary: "var(--primary)",
+        btnColor: {
+          base: "var(--color-text-base)",
+        }
       },
     },
   },

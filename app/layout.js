@@ -3,6 +3,8 @@ import "./globals.css";
 import { getServerSession } from "next-auth";
 import AuthProvider from "@/utils/sessionProvider";
 import ReactToast from "@/components/react-toast";
+import { Poppins } from '@next/font/google';
+import { DM_Sans } from '@next/font/google';
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -13,6 +15,16 @@ const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
   weight: "100 900",
+});
+
+const poppins = Poppins({
+  weight: ['400', '500', '700'], // Include desired weights
+  subsets: ['latin'],           // Specify subsets
+});
+
+const dmSans = DM_Sans({
+  weight: ['400', '500', '700'],
+  subsets: ['latin'],
 });
 
 export const metadata = {
@@ -26,7 +38,7 @@ export default async function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${poppins.className} ${dmSans.className} antialiased`}
       >
         <AuthProvider session={session}>
             {children}
