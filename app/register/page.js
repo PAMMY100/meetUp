@@ -4,9 +4,7 @@ import { useState } from 'react'
 import { Input, Card } from '@material-tailwind/react'
 import Link from 'next/link'
 import Image from 'next/image'
-import uName from '@/public/icons/name.svg'
-import letter from '@/public/icons/Letter.svg';
-import password from '@/public/icons/password.svg';
+import { uName, password, letter, ggLogo, fbLogo } from '../assets/icon'
 import bgImage from '@/public/images/bgimage.svg';
 
 const Register = () => {
@@ -51,10 +49,10 @@ const Register = () => {
           </div>
         </div>
       </div>
-      <div className='w-[500px] mx-auto h-full py-3.5 px-6 gap-2 bg-[#180434] text-white font-poppins'>
+      <div className='w-[500px] mx-auto h-screen py-4.5 px-6 gap-1 bg-[#180434] text-white font-poppins'>
         <Card color="transparent" shadow={false}>
-          <h2 className='text-white text-[57.71px] font-bold mb-5'>SIGN UP </h2>
-          <form className='flex flex-col  text-[#A4A4A4] gap-4' onSubmit={handleSubmit}>
+          <h2 className='text-white text-[27.71px] font-bold mb-1 mt-1'>SIGN UP </h2>
+          <form className='flex flex-col text-[#A4A4A4] gap-2' onSubmit={handleSubmit}>
             <div>
                 <label htmlFor='username' className=''>Username</label>
                 <div className='flex gap-2 items-center mt-2 border border-[#050209] rounded-md w-full max-w-sm mx-auto'>
@@ -115,12 +113,16 @@ const Register = () => {
                 </div>
               </div>
               <button type='submit' className='mb-3 custom-button text-[43px]'>Signup</button>
-              {/* <span className='text-white'>
-                    {""}
-                    Already have an account? {""}
-                    <Link className="text-center text-blue-500 hover:underline mt-2" href="/login">Login</Link>
-                  </span> */}
             </form>
+            <hr />
+          <div className='mt-3 flex flex-col gap-2'>
+            <p>Or continue with</p>
+            <div className='flex gap-2'>
+              <button className='bg-[#3B2063] text-white flex gap-2 w-[200px] h-[45px] items-center  px-4 rounded-lg'><Image className='ml-7' src={ggLogo} alt='google Icon'/> Google</button>
+              <button className='bg-[#3B2063] text-white flex gap-2 w-[200px] items-center h-[45px] p-2 rounded-lg'><Image className='ml-7' src={fbLogo} alt='facebook Icon'/> Facebook</button>
+            </div>
+            <p className='text-xs'>By registering you with our <span className='text-[#9D5CE9]'>Terms and Conditions</span></p>
+          </div>
         </Card>
       </div>
     </div>
