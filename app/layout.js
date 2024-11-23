@@ -5,6 +5,7 @@ import AuthProvider from "@/utils/sessionProvider";
 import ReactToast from "@/components/react-toast";
 import { Poppins } from '@next/font/google';
 import { DM_Sans } from '@next/font/google';
+import NextTopLoader from "nextjs-toploader";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -41,6 +42,7 @@ export default async function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} ${poppins.className} ${dmSans.className} antialiased`}
       >
         <AuthProvider session={session}>
+          <NextTopLoader />
             {children}
           <ReactToast />
         </AuthProvider>

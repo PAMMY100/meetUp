@@ -1,11 +1,15 @@
 'use client'
 import React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Input, Card } from '@material-tailwind/react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { uName, password, letter, ggLogo, fbLogo } from '../assets/icon'
 import bgImage from '@/public/images/bgimage.svg';
+import { useRouter } from 'next/navigation';
+import { useSession } from 'next-auth/react'
+import { toast } from 'react-toastify'
+
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -15,6 +19,10 @@ const Register = () => {
     confirmPassword: '',
   })
 
+  const {data, status: sessionStatus} = useSession();
+  const router = useRouter();
+
+
   const handleChange = (e) => {
    const {name, value} = e.target;
    setFormData(prev => ({
@@ -23,8 +31,40 @@ const Register = () => {
    }))
   }
 
-  const handleSubmit = (e) => {
+  useEffect(() => {
+    if (sessionStatus === 'authenticated') {
+      router.push('/dashboard')
+    }
+  }, [sessionStatus, router])
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!(formData.username || formData.email || formData.password || formData.confirmPassword)) {
+      toast.error('Please enter all required fields');
+      return;
+    } else if (formData.password !== formData.confirmPassword) {
+      toast.error('Password do not match');
+      return;
+    }
+    try {
+
+      const res = await fetch('/api/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json'},
+        body: JSON.stringify(formData)
+      })
+  
+      if (res.status === 400) {
+        toast.error("this email is already registered");
+      } else if (res.status === 200) {
+        toast.success("Account created successfully");
+        router.push('/login')
+      }
+
+    } catch (error) {
+      toast.error(error)
+    }
   }
 
   return (

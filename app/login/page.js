@@ -2,16 +2,22 @@
 import React from 'react'
 import { Input, Card } from '@material-tailwind/react'
 import Link from 'next/link'
-import { useState } from 'react'
+import { useState, useEffect } from 'react';
+import { signIn, useSession } from 'next-auth/react';
 import bgImage from '@/public/images/bgimage.svg'
 import Image from 'next/image'
 import { letter, password, fbLogo, ggLogo } from '../assets/icon'
+import { useRouter } from 'next/navigation';
+import { toast } from 'react-toastify';
 
 const Login = () => {
   const [userData, setUserData] = useState({
     email: '',
     password: '',
   })
+
+  const {data, status: sessionStatus} = useSession();
+  const router = useRouter();
 
   const handleChange = (e) => {
     const { name, value } = e.target; 
@@ -22,8 +28,35 @@ const Login = () => {
     }))
   }
 
-  const handleSubmit = (e) => {
+  useEffect(() => {
+    if (sessionStatus === 'authenticated') {
+      router.push('/dashboard')
+    }
+  }, [sessionStatus, router])
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!(userData.email || userData.password)) { 
+      toast.error('Please fill all the input fields')
+    }
+
+    const res = await signIn("credentials", {
+      redirect: false,
+      email: userData.email,
+      password: userData.password
+    })
+
+    if (res?.error) {
+      if (res?.url) {
+        router.replace('/dashboard')
+      }
+      toast.error('Invalid credentials')
+      return;
+    } else {
+      toast.success('Successfully logged in');
+      return;
+    }
   }
 
 
