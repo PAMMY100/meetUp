@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
 import { useState, useEffect } from 'react'
-import { Input, Card } from '@material-tailwind/react'
+// import { input, Card } from '@material-tailwind/react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { uName, password, letter, ggLogo, fbLogo } from '../assets/icon'
@@ -90,14 +90,14 @@ const Register = () => {
         </div>
       </div>
       <div className='w-[500px] mx-auto h-screen py-4.5 px-6 gap-1 bg-[#180434] text-white font-poppins'>
-        <Card color="transparent" shadow={false}>
+        {/* <Card color="transparent" shadow={false}> */}
           <h2 className='text-white text-[27.71px] font-bold mb-1 mt-1'>SIGN UP </h2>
           <form className='flex flex-col text-[#A4A4A4] gap-2' onSubmit={handleSubmit}>
             <div>
                 <label htmlFor='username' className=''>Username</label>
                 <div className='flex gap-2 items-center mt-2 border border-[#050209] rounded-md w-full max-w-sm mx-auto'>
                   <Image src={uName} alt='username Icon' />
-                  <Input 
+                  <input 
                     name='username' 
                     id='username' 
                     type='text' 
@@ -112,7 +112,7 @@ const Register = () => {
                 <label htmlFor='email'>Email</label>
                 <div className='flex gap-2 items-center mt-2 border border-[#050209] rounded-md w-full max-w-sm mx-auto'>
                   <Image src={letter} alt='email Icon' />
-                  <Input 
+                  <input 
                     name='email' 
                     id='email' 
                     type='email' 
@@ -127,7 +127,7 @@ const Register = () => {
                 <label htmlFor='password'>Password</label>
                 <div className='flex gap-2 items-center mt-2 border border-[#050209] rounded-md w-full max-w-sm mx-auto'>
                   <Image src={password} alt='password Icon' />
-                  <Input 
+                  <input 
                     name='password' 
                     id='password' type='password' onChange={handleChange} 
                     value={formData.password}
@@ -141,7 +141,7 @@ const Register = () => {
                 <label htmlFor='confirmPassword'>Confirm Password</label>
                 <div className='flex gap-2 items-center mt-2 border border-[#050209] rounded-md w-full max-w-sm mx-auto'>
                   <Image src={password} alt='password Icon' />
-                  <Input 
+                  <input 
                     name='confirmPassword' 
                     id='confirmPassword' 
                     type='password' 
@@ -163,7 +163,7 @@ const Register = () => {
             </div>
             <p className='text-xs'>By registering you with our <span className='text-[#9D5CE9]'>Terms and Conditions</span></p>
           </div>
-        </Card>
+        {/* </Card> */}
       </div>
     </div>
   )

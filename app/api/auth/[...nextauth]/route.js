@@ -82,7 +82,7 @@ export const authOptions = {
           const user = await User.findOne({email: credentials.email})
 
           if(user) {
-            const isPasswordCorrect = bcrypt.compare(credentials.password, user.password)
+            const isPasswordCorrect = await bcrypt.compare(credentials.password, user.password)
 
             if (isPasswordCorrect) {
               return user;
@@ -96,6 +96,10 @@ export const authOptions = {
       }
     })
   ],
+  session: {
+    strategy: "jwt",
+    maxAge: 60 * 60, // set session duration to 1 hour(in seconds)
+  },
   callbacks: {
       async signIn({user, account}) {
         if (account?.provider == 'credentials') { 

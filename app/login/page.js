@@ -1,6 +1,6 @@
 'use client'
 import React from 'react'
-import { Input, Card } from '@material-tailwind/react'
+// import { input, Card } from '@material-tailwind/react'
 import Link from 'next/link'
 import { useState, useEffect } from 'react';
 import { signIn, useSession } from 'next-auth/react';
@@ -83,7 +83,7 @@ const Login = () => {
           </div>
         </div>
         <div className='w-[500px] mx-auto h-screen p-4 text-white bg-[#180434] font-poppins'>
-        <Card color="transparent" shadow={false}>
+        {/* <Card color="transparent" shadow={false}> */}
           <form onSubmit={handleSubmit} className='flex flex-col gap-4 text-white'>
             <div>
               <h2 className='text-3xl font-bold mb-5'> Hello Again!</h2>
@@ -94,7 +94,7 @@ const Login = () => {
               <label>Email</label>
               <div className='flex gap-2 items-center mt-2 border border-[#050209] rounded-md w-full max-w-sm mx-auto'>
                 <Image src={letter} alt='email icon'/>
-                <Input 
+                <input 
                   name='email' 
                   id='email' 
                   type='email'
@@ -111,7 +111,7 @@ const Login = () => {
               <label>Password</label>
               <div className='flex gap-2 items-center mt-2 border border-[#050209] rounded-md w-full max-w-sm mx-auto'>
                 <Image src={password} alt='password icon'/>
-                <Input 
+                <input 
                   name='password' 
                   id='password' 
                   type='password'
@@ -133,7 +133,7 @@ const Login = () => {
             </div>
             <p className='text-xs'>By registering you with our <span className='text-[#9D5CE9]'>Terms and Conditions</span></p>
           </div>
-        </Card>
+        {/* </Card> */}
       </div>
     </div>
     
