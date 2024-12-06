@@ -1,27 +1,36 @@
-// import webDevelopment from "@/public/images/webDevelopment.png";
-// import logoDesign from "@public/images/logoDesign.png";
-// import seo from "@public/images/seo.png";
-// import videoEditing from "@public/images/videoEditing.png";
+import webD from "../public/images/webDevelepment.png";
+import logoDesign from "../public/images/logoDesign.png";
+import seoImage from "../public/images/seo.png";
+import vidE from "../public/images/videoEditing.png";
+import { webdevArrow, seo, vidEditing, logoDes, icon } from "@/app/assets/icon";
 
 export const carouselItems = [
   {
-    image: '',
+    image: webD,
     title: "Web Development",
-    bgColor: "#5a41f2"
+    icon: webdevArrow,
+    from: "#92A3FF",
+    to: "#7C91FF",
   },
   {
-    image: '',
+    image: logoDesign,
     title: "Logo Design",
-    bgColor: "#26A3E4",
+    icon: logoDes,
+    from: "#92A3FF",
+    to: "#7C91FF",
   },
   {
-    image: '',
+    image: seoImage,
     title: "SEO",
-    bgColor: "#28C76F",
+    icon: seo,
+    from: "#92A3FF",
+    to: "#7C91FF",
   },
   {
-    image: '',
+    image: vidE,
     title: "Editing",
-    bgColor: "#EA5455",
+    icon: vidEditing,
+    from: "#92A3FF",
+    to: "#7C91FF",
   },
 ]

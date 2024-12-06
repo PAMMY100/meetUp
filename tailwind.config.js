@@ -11,7 +11,8 @@ module.exports = withMT({
     extend: {
       fontFamily: {
         poppins: ['Poppins', 'sans-serif'],
-        dmSans: ['DM Sans', 'sans-serif']
+        dmSans: ['DM Sans', 'sans-serif'],
+        beauRivage: ['Beau Rivage', 'sans-serif'],
       },
       colors: {
         background: "var(--background)",
@@ -20,6 +21,11 @@ module.exports = withMT({
         btnColor: {
           base: "var(--color-text-base)",
         }
+      },
+      gridTemplateColumns: {
+        footer: "20% 80%",
+        rating: "596px 103px",
+        custom: "1fr 1fr 1fr 1fr",
       },
     },
   },

@@ -15,6 +15,7 @@ import webdevArrow from '@/public/icons/webdevArrow.svg';
 import logoDes from '@/public/icons/logoDes.svg';
 import seo from '@/public/icons/seo.svg';
 import vidEditing from '@/public/icons/vidEditing.svg';
+import nextArrow from '@/public/icons/nextArrow.svg'
 
 
 export {
@@ -35,4 +36,5 @@ export {
   logoDes,
   seo,
   vidEditing,
+  nextArrow
 }

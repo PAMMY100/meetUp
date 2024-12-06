@@ -6,6 +6,8 @@ import React from 'react';
 import Hero from '@/components/Hero'
 import Sponsor from '@/components/Sponsor'
 import PopularService from '@/components/PopularService';
+import OutstandingFeatures from '@/components/OutstandingFeatures';
+import Categories from '@/components/Categories';
 
 
 const Home = () => {
@@ -25,6 +27,8 @@ const Home = () => {
         <Hero />
         <Sponsor />
         <PopularService />
+        <OutstandingFeatures />
+        <Categories />
     </div>
   )
 }

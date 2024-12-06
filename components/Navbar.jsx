@@ -24,10 +24,10 @@ const Navbar = () => {
         </div>
         <div className="flex justify-between gap-6">
           <Link href="/login">
-            <button className="w-[92px] h-[27px] bg-[#2A2F33] rounded-[10px] text-xs">Login</button>
+            <button className="w-[92px] h-[27px] bg-[#2A2F33] rounded-[10px] font-poppins text-xs">Login</button>
           </Link>
           <Link href="/register">
-            <button className="w-[92px] h-[27px] bg-[#9C4DF4] rounded-[10px] text-xs">Sign Up</button>
+            <button className="w-[92px] h-[27px] bg-[#9C4DF4] rounded-[10px] font-poppins text-xs">Sign Up</button>
           </Link>
         </div>
       </div>

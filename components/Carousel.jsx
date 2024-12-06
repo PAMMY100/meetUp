@@ -1,6 +1,7 @@
 "use client"
 import Image from 'next/image';
 import React, { useState } from 'react'
+import { nextArrow } from '@/app/assets/icon';
 
 const Carousel = ({items}) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -15,28 +16,29 @@ const Carousel = ({items}) => {
   }
 
   return (
-    <div>
-      <div>
+    <div className='p-8 relative'>
+      <div className='flex overflow-x-auto gap-6 px-8 py-4'>
         {items.map((item, index) => (
           <div 
             key={index}
-            className={`flex-shrink-0 w-full transition-transform duration-500 transform ${
-              index === currentIndex ? "translate-x-0" : "-translate-x-full"
-            }`}
+            className={`relative
+             rounded-lg overflow-hidden snap-center w-[280px] h-[323px] bg-gradient-to-b from-[#92A3FF] to-[#7C91FF]`}
             >
               <div
-                className="p-4 rounded-lg text-center"
-                style={{ backgroundColor: item.bgColor }}
+                // className={`p-4 rounded-lg text-center w-[280px] h-[323px] bg-gradient-to-b from-${item.from} to-${item.to}`}
+                className="relative w-full h-full"
+                
               >
                 <Image 
                   src={item.image}
                   alt={item.title}
-                  width={200}
-                  height={200}
-                  className='mx-auto'
+                  className='opacity-55 object-cover w-full h-full'
                 />
-                <h2 className="mt-4 text-2xl font-semibold text-white">
+                <div className='flex flex-col justify-center align-middle items-center absolute bottom-[40%] left-[30%] text-white text-lg font-semibold'>
+                  <Image src={item.icon} alt={item.title} />
+                  <h2 className="mt-4 text-xl font-semibold text-white">
                 {item.title}</h2>
+                </div>
               </div>
           </div>
         ))}
@@ -44,15 +46,15 @@ const Carousel = ({items}) => {
       {/* Navigation */}
       <button
         onClick={handlePrev}
-        className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full"
+        className="absolute left-9 top-1/2 transform -translate-y-1/3 bg-white py-2 px-4 rounded-[50%]"
       >
-        &#8249;
+        <Image src={nextArrow} className='rotate-180' alt='direction arrow' />
       </button>
       <button
         onClick={handleNext}
-        className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full"
+        className="absolute right-9 top-1/2 transform -translate-y-1/2 bg-white py-2 px-4 rounded-[50%]"
       >
-        &#8250;
+        <Image src={nextArrow} alt='direction arrow' />
       </button>
 
       {/* Dots */}
@@ -60,7 +62,7 @@ const Carousel = ({items}) => {
         {items.map((_, index) => (
           <div
             key={index}
-            className={`h-2 w-2 rounded-full ${
+            className={`h-1 w-6 rounded-full ${
               index === currentIndex ? "bg-blue-500" : "bg-gray-300"
             }`}
           />
