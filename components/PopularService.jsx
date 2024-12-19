@@ -1,8 +1,8 @@
 import Image from 'next/image'
 import React from 'react'
 import { analysisArrow, direction } from '@/app/assets/icon'
-import Carousel from './Carousel'
 import { carouselItems } from '@/utils/carouselItems'
+import CarouselComp from './Carousel'
 
 
 const PopularService = () => {
@@ -19,7 +19,8 @@ const PopularService = () => {
           <Image src={direction} alt='direction arrow'/>
         </div>
       </div>
-      <Carousel items={carouselItems} />
+      {/* <Carousel items={carouselItems} /> */}
+      <CarouselComp items={carouselItems} />
     </div>
   )
 }

@@ -27,7 +27,8 @@ const userSchema = new Schema({
   following: [{
     type: Schema.Types.ObjectId,
     ref: 'User',
-  }],  
+  }],
+  sessionId: {type: String},
 }, {
   timestamps: true,
 })

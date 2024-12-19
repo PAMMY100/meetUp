@@ -128,7 +128,11 @@ const Login = () => {
           <div className='mt-3 flex flex-col gap-2'>
             <p>Or continue with</p>
             <div className='flex gap-2'>
-              <button className='bg-[#3B2063] text-white flex gap-2 w-[200px] h-[45px] items-center  px-4 rounded-lg'><Image className='ml-7' src={ggLogo} alt='google Icon'/> Google</button>
+              <form action={async () => {
+                await signIn('google')
+              }}>
+                <button type='submit' className='bg-[#3B2063] text-white flex gap-2 w-[200px] h-[45px] items-center  px-4 rounded-lg'><Image className='ml-7' src={ggLogo} alt='google Icon'/> Google</button>
+              </form>
               <button className='bg-[#3B2063] text-white flex gap-2 w-[200px] items-center h-[45px] p-2 rounded-lg'><Image className='ml-7' src={fbLogo} alt='facebook Icon'/> Facebook</button>
             </div>
             <p className='text-xs'>By registering you with our <span className='text-[#9D5CE9]'>Terms and Conditions</span></p>

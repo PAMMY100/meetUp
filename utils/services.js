@@ -10,35 +10,35 @@ import vidEdit from '@/public/images/videoEditing.png';
 
 export const services = [
   {
-    image: graphicDes,
-    title: 'Graphic&Design',
+    src: graphicDes,
+    title: 'Graphic & Design',
   },
   {
-    image: cartoonAnime,
+    src: cartoonAnime,
     title: 'Cartoon Animation',
   },
   {
-    image: illustration,
+    src: illustration,
     title: 'Illustration',
   },
   {
-    image: flyers,
+    src: flyers,
     title: 'Flyers & Vouchers',
   },
   {
-    image: logoDes,
+    src: logoDes,
     title: 'Logo Design',
   },
   {
-    image: socialGraph,
+    src: socialGraph,
     title: 'Social graphics',
   },
   {
-    image: articleWriting,
+    src: articleWriting,
     title: 'Article writing',
   },
   {
-    image: vidEdit,
+    src: vidEdit,
     title: 'Video Editing',
   }
 ]

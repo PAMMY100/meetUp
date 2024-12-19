@@ -8,6 +8,7 @@ import Sponsor from '@/components/Sponsor'
 import PopularService from '@/components/PopularService';
 import OutstandingFeatures from '@/components/OutstandingFeatures';
 import Categories from '@/components/Categories';
+import Footer from '@/components/Footer';
 
 
 const Home = () => {
@@ -29,6 +30,7 @@ const Home = () => {
         <PopularService />
         <OutstandingFeatures />
         <Categories />
+        <Footer />
     </div>
   )
 }

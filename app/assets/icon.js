@@ -16,7 +16,9 @@ import logoDes from '@/public/icons/logoDes.svg';
 import seo from '@/public/icons/seo.svg';
 import vidEditing from '@/public/icons/vidEditing.svg';
 import nextArrow from '@/public/icons/nextArrow.svg'
-
+import iconFb from '@/public/icons/iconFb.svg';
+import iconLinkdin from "@/public/icons/iconLinkdin.svg";
+import iconTwitter from '@/public/icons/iconTwitter.svg'
 
 export {
   fbLogo,
@@ -36,5 +38,8 @@ export {
   logoDes,
   seo,
   vidEditing,
-  nextArrow
+  nextArrow,
+  iconFb,
+  iconLinkdin,
+  iconTwitter
 }

@@ -1,9 +1,11 @@
 'use client'
 
-import { services } from "@/utils/services"
 import Image from 'next/image';
+import flyers from '@/public/images/flyers.png'
+import cartoonAnim from '@/public/images/CartoonAnimation.png'
+import Subject from "./Subject";
 
-const Service = () => {
+const Service = ({ services }) => {
 
   return (
     <div className='m-3'>
