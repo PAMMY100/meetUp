@@ -19,6 +19,13 @@ import nextArrow from '@/public/icons/nextArrow.svg'
 import iconFb from '@/public/icons/iconFb.svg';
 import iconLinkdin from "@/public/icons/iconLinkdin.svg";
 import iconTwitter from '@/public/icons/iconTwitter.svg'
+import searchIcon from '@/public/icons/searchIcon.svg';
+import messageIcon from '@/public/icons/messageIcon.svg';
+import notificationIcon from '@/public/icons/notificationIcon.svg'
+import onlineIcon from '@/public/icons/onlineIcon.svg'
+import favIcon from '@/public/icons/favIcon.svg';
+import buyerIcon from '@/public/icons/buyerIcon.svg'
+import Order from '@/public/icons/Order.svg'
 
 export {
   fbLogo,
@@ -41,5 +48,12 @@ export {
   nextArrow,
   iconFb,
   iconLinkdin,
-  iconTwitter
+  iconTwitter,
+  searchIcon,
+  messageIcon,
+  notificationIcon,
+  onlineIcon,
+  favIcon,
+  buyerIcon,
+  Order
 }

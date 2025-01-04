@@ -16,6 +16,9 @@ const Login = () => {
     password: '',
   })
 
+  const [loading, setLoading] = useState(false)
+  
+
   const {data, status: sessionStatus} = useSession();
   const router = useRouter();
 
@@ -48,12 +51,13 @@ const Login = () => {
     })
 
     if (res?.error) {
-      if (res?.url) {
-        router.replace('/dashboard')
-      }
+      // if (res?.url) {
+      //   router.replace('/dashboard')
+      // }
       toast.error('Invalid credentials')
       return;
     } else {
+      router.push('/dashboard')
       toast.success('Successfully logged in');
       return;
     }
@@ -70,7 +74,7 @@ const Login = () => {
           width: '832px',
         }}>
           <div className='text-white flex flex-col justify-between h-full p-5'>
-            <Link href='/'><h3 className='text-2xl font-bold'>ReacH</h3></Link>
+            <Link href='/'><h3 className='text-2xl font-bold font-poppins'>ReacH</h3></Link>
             <div className='font-dmSans flex flex-col align-middle mx-auto gap-4 items-center text-center w-[500px] h-[264px]'>
               <h1 className='text-5xl font-bold'>Hello! Welcome to ReacH.</h1>
               <p className='text-2xl'>Don't Have an account? Sign Up</p>
@@ -122,7 +126,7 @@ const Login = () => {
                   />
               </div>
             </div>
-              <button type='submit' className='mb-3 custom-button text-[43px]'>Login</button>
+              <button type='submit' onClick={() => {setLoading(true)}} className='mb-3 custom-button text-[43px]'>{loading ? 'Loading....' : 'Login'}</button>
           </form>
           <hr />
           <div className='mt-3 flex flex-col gap-2'>
